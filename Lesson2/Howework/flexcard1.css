@@ -1,0 +1,63 @@
+body{
+    margin: 0;
+}
+
+.title {
+
+    margin-top: 20px;
+    font-family: Candara, sans-serif;
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal ;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+
+}
+.mainback {
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row ;
+}
+.card {
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-width: thin;
+    border-style: solid;
+    border-color: grey;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.txt {
+    color: grey ;
+    font-family: Candara, sans-serif;
+    text-align: center;
+    width: 80%;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+
+}
+.button{
+    width: 150px;
+    height: 40px;
+    display: flex;
+    border-width: thin;
+    border-style: solid;
+    border-color: black;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.CTA {
+    color: grey;
+    font-family: Candara, sans-serif;
+    text-align: center;
+    width: 80%;
+    line-height: 20px;
+}
