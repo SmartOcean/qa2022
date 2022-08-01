@@ -1,0 +1,45 @@
+# Tasks
+# 1.	Show all info about the employee with ID - 2.
+select * from northwind.Employees where northwind.Employees.EmployeeID = 2 ;
+#     2.	Show contact name of suppliers from cities begin with letter S.
+select ContactName from Suppliers where City like 'S%';
+#     3.	Show first 20 product names.
+select * from Products order by  SupplierID limit 20;
+#     4.	Show the list of german customers’ names.
+select ContactName FROM Customers WHERE Customers.Country like 'germany'
+#     5.	Show the list of product names whose unit prices are between 20 and 30.
+select ProductName FROM Products WHERE UnitPrice > 20 and UnitPrice < 30
+#     6.	Show the most expensive product.
+select * FROM Products order by UnitPrice desc limit 1;
+#     7.	Show the list of products whose unit prices is greater than 20.
+select * FROM Products where UnitPrice > 20 order by UnitPrice asc;
+#     8.	Show the list of employees whose salary is between 2000 and 2500.
+select * FROM Employees WHERE Salary > 2000 and Salary < 2500
+#     9.	Show the list of categories whose names end with letter S.
+select * FROM Categories WHERE CategoryName like '%S'
+#     10.	Show the list ofz companies from Paris.
+select * FROM Suppliers WHERE City like 'Paris';
+#     11.	Show the first and last names of employees who are Misters.
+select LastName, FirstName from Employees where TitleOfCourtesy = 'Mr.';
+#     12.	Show the list of suppliers and products which they supplies.
+select Suppliers.CompanyName, Products.ProductName from Suppliers join Products on Suppliers.SupplierID = Products.SupplierID;
+#     13.	Show the list of first and last names of employees and territories where they live
+select FirstName, LastName, Country as Territory from Employees;
+#     14.	Show the list of names of employees and dates of their orders.
+select Employees.FirstName, Orders.orderdate from Employees join Orders on Employees.EmployeeID = Orders.EmployeeID;
+#     15.	Show the list of order dates and unit prices.
+select OrderDate, P.UnitPrice from Orders O inner join OrderDetails OD on O.OrderID = OD.OrderID inner join Products P on OD.ProductID = P.ProductID;
+#     16.	Insert 5 new records into Employees table. Fill in the following  fields: LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes. The Notes field should contain your own name (to distinguish your records from the ones inserted by other trainees).
+insert into Employees (LastName, FirstName, BirthDate, HireDate, Address, City, Country, Notes)
+values
+    ('Kuzmenko', 'daria', '1984-05-11 22:00:00', '2222-09-22 22:22:23', 'Home', 'Mexico', 'Mexico', 'Artem.Svyatnenko'),
+    ('Maklyal', 'Pavlo', '1987-03-11 22:00:00', '2222-09-22 22:22:23', 'Home', 'Kyiv', 'Ukraine', 'Artem.Svyatnenko'),
+    ('Rudenko', 'Yura', '1986-03-14 22:00:00', '2222-09-22 22:22:23', 'Home', 'Lviv', 'Ukraine', 'Artem.Svyatnenko'),
+    ('Pakhmyuk', 'Yevgen', '1989-03-11 22:00:00', '2222-09-22 22:22:23', 'Home', 'Warsaw', 'Poland', 'Artem.Svyatnenko');
+#     17.	Fetch the records you have inserted by the SELECT statement
+(select * from Employees order by EmployeeID desc limit 5) order by employeeid asc ;
+#     19.	Change the HireDate field in all your records to current date (first run the SELECT statement to check whether you are updating the appropriate records!).
+update Employees set HireDate = '2022-07-31 22:45:00' where Notes = 'Artem.Svyatnenko';
+#     20.	Delete one of your records (first run the SELECT statement to check whether you are deleting the appropriate record!).
+delete from Employees where LastName = 'Pakhmyuk';
+
